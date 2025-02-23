@@ -1,12 +1,13 @@
 let map;
 let service;
 let userLocation = null;
+window.clinicMarkers = []; // Store markers for filtering
 
 function initMap() {
     console.log("Initializing Map...");
     
     map = new google.maps.Map(document.getElementById("map"), {
-        center: { lat: 36.9741, lng: -122.0308 }, // Default: San Francisco
+        center: { lat: 36.9741, lng: -122.0308 }, // Default: Santa Cruz
         zoom: 12
     });
 
@@ -46,7 +47,7 @@ function searchClinics(queryString) {
         return;
     }
 
-    const searchCenter = userLocation || { lat: 37.7749, lng: -122.4194 };
+    const searchCenter = userLocation || { lat: 36.9741, lng: -122.0308 }; // Default to Santa Cruz
     const request = {
         query: queryString,
         location: searchCenter,
@@ -55,6 +56,9 @@ function searchClinics(queryString) {
 
     service.textSearch(request, (results, status) => {
         if (status === google.maps.places.PlacesServiceStatus.OK) {
+            clearMarkers(); // Clear previous markers
+            window.clinicMarkers = []; // Reset marker array
+
             results.forEach(place => {
                 if (!place.geometry || !place.geometry.location) return;
 
@@ -63,6 +67,8 @@ function searchClinics(queryString) {
                     position: place.geometry.location,
                     title: place.name
                 });
+
+                window.clinicMarkers.push(marker); // Store marker for filtering
 
                 const infoWindow = new google.maps.InfoWindow({
                     content: `<h3>${place.name}</h3><p>${place.formatted_address}</p>`
@@ -81,4 +87,23 @@ function searchClinics(queryString) {
             alert("No results found.");
         }
     });
+}
+
+// Filter markers based on search bar input
+function filterClinics() {
+    let input = document.getElementById("search").value.toLowerCase();
+
+    window.clinicMarkers.forEach(marker => {
+        if (marker.title.toLowerCase().includes(input)) {
+            marker.setMap(map); // Show marker
+        } else {
+            marker.setMap(null); // Hide marker
+        }
+    });
+}
+
+// Clears all markers from the map
+function clearMarkers() {
+    window.clinicMarkers.forEach(marker => marker.setMap(null));
+    window.clinicMarkers = [];
 }
