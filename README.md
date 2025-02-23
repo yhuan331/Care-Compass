@@ -26,8 +26,8 @@ This platform utilizes **Google Maps API** and **Google Places API** to provide 
 
 ### 1️⃣ Clone the Repository  
 ```sh
-git clone https://github.com/your-repo/Health-Equity-Resource-Finder.git
-cd Health-Equity-Resource-Finder
+   git clone https://github.com/your-repo/Health-Equity-Resource-Finder.git
+   cd Health-Equity-Resource-Finder
 ```
 ### 2️⃣ Set Up the Virtual Environment
    ```sh
@@ -35,7 +35,7 @@ cd Health-Equity-Resource-Finder
        source venv/bin/activate  # (Mac/Linux)
        venv\Scripts\activate  # (Windows)
 ```
-### 3️⃣ Statrt the Flask Backend 
+### 3️⃣ Start the Flask Backend 
    ```sh
    cd backend
    python app.py
