@@ -149,7 +149,9 @@ header {
     text-align: center;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     min-height: 250px; /* Ensures equal height */
-    display: flex;
+    /* display: flex; */
+    width: 90%;
+    height : 90%;
     flex-direction: column;
     justify-content: space-between; 
  /* Keeps text and button aligned */
@@ -186,5 +188,28 @@ button {
 
 button:hover {
     background: white;
+    color: black;
+}
+
+/* Style hotline links to match buttons */
+.hotline-link {
+    display: block;
+    background: transparent;
+    border: 2px solid white;
+    color: white;
+    padding: 12px 25px;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 5px;
+    cursor: pointer;
+
+    transition: all 0.3s ease-in-out;
+}
+
+/* Hover effect */
+.hotline-link:hover {
+    background-color: white;
     color: black;
 }
