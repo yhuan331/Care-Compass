@@ -1,18 +1,34 @@
-/* Style for the About Us section */
-#about {
-    text-align: center;
-    padding: 100px 20px;
-    background-color: #f4f4f4;
-    font-size: 1.2em;
+/* General Styling */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f8f8f8;
 }
 
-/* Initially hide the search bar and map */
-#search-map-container {
-    opacity: 0;
-    transform: translateY(50px);
-    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+/* Header */
+header {
+    text-align: center;
+    background-color: #007bff;
+    color: white;
+    padding: 20px;
+}
+
+.logo {
+    height: 80px;
+}
+
+/* About Us Section */
+.about-us {
     text-align: center;
     padding: 50px 20px;
+    background-color: #f4f4f4;
+}
+
+/* Search & Map Section */
+.healthcare-page {
+    text-align: center;
+    padding: 50px;
 }
 
 #search {
@@ -23,15 +39,57 @@
     font-size: 1.2em;
 }
 
+/* Map Styling */
 #map {
     height: 500px;
     width: 100%;
     max-width: 800px;
     margin: auto;
+    border: 2px solid #ddd;
+    border-radius: 10px;
 }
 
-/* Show the search/map when scrolled */
-.show {
-    opacity: 1 !important;
-    transform: translateY(0) !important;
+/* Button Styling */
+button {
+    padding: 10px 20px;
+    font-size: 1.1em;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 10px;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+/* Resources Section */
+.resources {
+    text-align: center;
+    padding: 50px 20px;
+    background-color: #e9ecef;
+}
+
+/* Resource Boxes */
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    padding: 20px;
+}
+
+.box {
+    width: 300px;
+    padding: 20px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.box button {
+    width: 100%;
 }

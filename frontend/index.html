@@ -1,14 +1,14 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Find Free/Low Cost Clinics Near Your Location</title>
 
-    <!-- Link to external script file FIRST -->
+
     <script src="script.js" defer></script>
 
-    <!-- Add Google Maps API (Replace YOUR_API_KEY with your actual key) -->
+
     <script
         src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDNfgsYIx6vUKfs6-67XwPMhSe3x60NrQM&callback=initMap&libraries=places"
         async defer>
@@ -33,5 +33,167 @@
     <div id="map"></div>
 
     
+</body>
+</html>
+
+-------top tanu bottom eva ------
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Health Equity Resource Finder</title>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDNfgsYIx6vUKfs6-67XwPMhSe3x60NrQM
+    &callback=initMap" async defer></script>
+    <link rel="stylesheet" href="index.css">
+    <script src="script.js"></script>
+
+</head>
+<body class="page">
+    <h1 class="title">Find Free/Low-Cost Healthcare Clinics</h1>
+    <img src="logo-Photoroom.png"  class="logo">
+    <div class="about-us">
+        <h1>About Us</h1>
+        <p>oiadsiojdoisad</p>
+    </div>
+
+    <div class="healthcare-page">
+        <h1 class="title">Find Free/Low-Cost Healthcare Clinics</h1> 
+        <input type="text" id="search" placeholder="Search for a clinic..." onkeyup="filterClinics()">
+        <div id="map" style="height: 500px; width: 100%;"></div>
+    </div>
+
+    <div class="resources">
+        <h1>Free Reources Around You </h1>
+
+    </div>
+
+
+    <div class="container">
+        <div class="box box1">
+            <h2>Sexual Health Services</h2>
+            <p>asdadfdkakfakdflkaf</p>
+            <p>asdadfdkakfakdflkaf</p>
+            <p>asdadfdkakfakdflkaf</p>
+            <p>asdadfdkakfakdflkaf</p>
+            <p>asdadfdkakfakdflkaf</p>
+            <p>asdadfdkakfakdflkaf</p>
+            <button>APPLY</button>
+        </div>
+        <div class="box box2">
+            <h2> Vaccination & Immunization </h2>
+            <p></p>
+            <button>APPLY</button>
+        </div>
+        <div class="box box3">
+            <h2>Perscription & Medication </h2>
+            <p></p>
+            <button>APPLY</button>
+        </div>
+        <div class="box box4">
+            <h2>Mental Health Service </h2>
+            <p></p>
+            <button>APPLY</button>
+        </div>
+        <div class="box box5">
+            <h2>Dental & Vision Care</h2>
+            <p></p>
+            <button>APPLY</button>
+        </div>
+        <div class="box box6">
+            <h2>Hygines and Feminine Care Products  </h2>
+            <p></p>
+            <button>APPLY</button>
+        </div>
+    </div>
+
+
+</body>
+
+</html>
+-->
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Find Free/Low Cost Clinics Near Your Location</title>
+
+    <!-- Link to external styles -->
+    <link rel="stylesheet" href="index.css">
+
+    <!-- Link to script -->
+    <script src="script.js" defer></script>
+
+    <!-- Google Maps API (Replace YOUR_API_KEY with actual key) -->
+    <script
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDNfgsYIx6vUKfs6-67XwPMhSe3x60NrQM&callback=initMap&libraries=places"
+        async defer>
+    </script>
+</head>
+
+<body class="page">
+
+    <!-- Header Section -->
+    <header>
+        <img src="logo-Photoroom.png" alt="Health Equity Resource Finder Logo" class="logo">
+        <h1 class="title">Find Free/Low-Cost Healthcare Clinics</h1>
+    </header>
+
+    <!-- About Us Section -->
+    <section class="about-us">
+        <h1>About Us</h1>
+        <p>We are dedicated to helping individuals find free and low-cost healthcare services.</p>
+    </section>
+
+    <!-- Search & Map Section -->
+    <section class="healthcare-page">
+        <h2>Find Free/Low Cost Clinics Near You</h2>
+        <input type="text" id="search" placeholder="Search for a clinic..." onkeyup="filterClinics()">
+        <button onclick="searchClinics('free clinic')">Free Clinics Near Me</button>
+        <button onclick="searchClinics('low cost clinic')">Low Cost Clinics Near Me</button>
+        <div id="map"></div> <!-- ✅ Map loads here -->
+    </section>
+
+    <!-- Resources Section -->
+    <section class="resources">
+        <h1>Free Resources Around You</h1>
+    </section>
+
+    <!-- Resource Boxes -->
+    <div class="container">
+        <div class="box box1">
+            <h2>Sexual Health Services</h2>
+            <p>Find clinics that offer free sexual health check-ups and services.</p>
+            <button>APPLY</button>
+        </div>
+        <div class="box box2">
+            <h2>Vaccination & Immunization</h2>
+            <p>Get free vaccines and immunizations at participating locations.</p>
+            <button>APPLY</button>
+        </div>
+        <div class="box box3">
+            <h2>Prescription & Medication</h2>
+            <p>Access low-cost prescription drugs and medication assistance programs.</p>
+            <button>APPLY</button>
+        </div>
+        <div class="box box4">
+            <h2>Mental Health Services</h2>
+            <p>Find free counseling and mental health support centers.</p>
+            <button>APPLY</button>
+        </div>
+        <div class="box box5">
+            <h2>Dental & Vision Care</h2>
+            <p>Locate free dental and vision care programs.</p>
+            <button>APPLY</button>
+        </div>
+        <div class="box box6">
+            <h2>Hygiene & Feminine Care Products</h2>
+            <p>Access free hygiene and feminine care products in your area.</p>
+            <button>APPLY</button>
+        </div>
+    </div>
+
 </body>
 </html>
