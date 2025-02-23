@@ -22,6 +22,13 @@ This platform utilizes **Google Maps API** and **Google Places API** to provide 
 - **Database:** SQLite (Optional for future development)  
 - **Version Control:** Git & GitHub  
 
+## 📌 How It Works  
+1. **User enters their location** – Care Compass searches for nearby clinics.  
+2. **Google Maps displays results** – Users can see clinics and their details on an interactive map.  
+3. **Live Filtering** – Users can refine searches based on healthcare services.  
+4. **Additional Resources** – Users can access resources for **vaccinations, mental health, and prescriptions**.  
+
+
 ## 🛠️ Installation & Setup  
 
 ### 1️⃣ Clone the Repository  
@@ -66,8 +73,3 @@ The Flask server should now be running at:
      │   ├── logo.png         # Logo image
      │── README.md            # Project documentation
 
-## 📌 How It Works  
-1. **User enters their location** – Care Compass searches for nearby clinics.  
-2. **Google Maps displays results** – Users can see clinics and their details on an interactive map.  
-3. **Live Filtering** – Users can refine searches based on healthcare services.  
-4. **Additional Resources** – Users can access resources for **vaccinations, mental health, and prescriptions**.  
