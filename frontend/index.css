@@ -1,0 +1,37 @@
+/* Style for the About Us section */
+#about {
+    text-align: center;
+    padding: 100px 20px;
+    background-color: #f4f4f4;
+    font-size: 1.2em;
+}
+
+/* Initially hide the search bar and map */
+#search-map-container {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+    text-align: center;
+    padding: 50px 20px;
+}
+
+#search {
+    padding: 10px;
+    width: 80%;
+    max-width: 400px;
+    margin-bottom: 20px;
+    font-size: 1.2em;
+}
+
+#map {
+    height: 500px;
+    width: 100%;
+    max-width: 800px;
+    margin: auto;
+}
+
+/* Show the search/map when scrolled */
+.show {
+    opacity: 1 !important;
+    transform: translateY(0) !important;
+}
