@@ -107,3 +107,9 @@ function clearMarkers() {
     window.clinicMarkers.forEach(marker => marker.setMap(null));
     window.clinicMarkers = [];
 }
+
+
+function toggleButton(selectedButton) {
+    // Get all buttons with the class "clinic-btn"
+    selectedButton.classList.toggle("active");
+}

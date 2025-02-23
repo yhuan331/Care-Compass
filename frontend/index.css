@@ -79,8 +79,6 @@ header {
     border: 2px solid #ddd;
     border-radius: 10px;
 }
-
-/* Button Styling */
 .healthcare-page button {
     font-family: "Times New Roman", Times, serif;
     padding: 10px 20px;
@@ -91,11 +89,20 @@ header {
     border-radius: 5px;
     cursor: pointer;
     margin: 10px;
+    transition: background-color 0.3s ease-in-out;
 }
 
+/* Hover Effect */
 .healthcare-page button:hover {
     background-color: #0E3242;
     color: white;
+}
+
+/* Active (Selected) Button Effect */
+.healthcare-page button.active {
+    background-color: #0E3242; /* Change to your preferred selected button color */
+    color: white;
+    border: 2px solid white;
 }
 
 /* Resources Section */

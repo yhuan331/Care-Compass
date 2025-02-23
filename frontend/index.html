@@ -154,9 +154,9 @@
     <section class="healthcare-page">
         <h2>Find Free & Low Cost Clinics Near You!</h2>
         <input type="text" id="search" placeholder="Search for a clinic..." onkeyup="filterClinics()">
-        <button onclick="searchClinics('free clinic')">Free Clinics Near Me</button>
-        <button onclick="searchClinics('low cost clinic')">Low Cost Clinics Near Me</button>
-        <div id="map"></div> <!-- ✅ Map loads here -->
+        <button class="clinic-btn" onclick="toggleButton(this); searchClinics('free clinic')">Free Clinics Near Me</button>
+        <button class="clinic-btn" onclick="toggleButton(this); searchClinics('low cost clinic')">Low Cost Clinics Near Me</button>
+        <div id="map"></div>        
     </section>
 
     <!-- Resources Section -->
