@@ -1,34 +1,65 @@
 /* General Styling */
 body {
-    font-family: Arial, sans-serif;
+    font-family: "Times New Roman", Times, serif;
     margin: 0;
     padding: 0;
-    background-color: #f8f8f8;
+    background-color: #FCFBF4;
 }
 
 /* Header */
 header {
     text-align: center;
-    background-color: #007bff;
+    background-color: #0E3242 ;
     color: white;
-    padding: 20px;
+    /* margin: 50px auto; */
+    padding: 5px;
+    font-size: 25px;
 }
 
 .logo {
-    height: 80px;
+    padding: 20px;
+    height: 180px;
 }
 
 /* About Us Section */
 .about-us {
-    text-align: center;
-    padding: 50px 20px;
-    background-color: #f4f4f4;
+    background: #500000;
+    color: white;
+    padding: 30px;
+    margin: 50px auto; /* Centers horizontally with some top and bottom space */
+    width: 90%;
+    max-width: 1400px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    text-align: center; /* Centers text inside */
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Ensures content inside is centered */
+    justify-content: center; /* Centers vertically */
+}
+
+
+.about-us h1 {
+    font-size: 35px;
+    margin-bottom: 5px;
+}
+
+.about-us p {
+    font-size: 25px;
+    line-height: 1.5;
 }
 
 /* Search & Map Section */
 .healthcare-page {
     text-align: center;
-    padding: 50px;
+    padding: 30px;
+}
+
+.healthcare-page h2{
+    text-align: center;
+    font-size: 40px;
+    color: black;
+    /* 0E3242 */
 }
 
 #search {
@@ -41,19 +72,20 @@ header {
 
 /* Map Styling */
 #map {
-    height: 500px;
+    height: 1000px;
     width: 100%;
-    max-width: 800px;
+    max-width: 1300px;
     margin: auto;
     border: 2px solid #ddd;
     border-radius: 10px;
 }
 
 /* Button Styling */
-button {
+.healthcare-page button {
+    font-family: "Times New Roman", Times, serif;
     padding: 10px 20px;
-    font-size: 1.1em;
-    background-color: #007bff;
+    font-size: 1.4em;
+    background-color: #500000;
     color: white;
     border: none;
     border-radius: 5px;
@@ -61,35 +93,98 @@ button {
     margin: 10px;
 }
 
-button:hover {
-    background-color: #0056b3;
+.healthcare-page button:hover {
+    background-color: #0E3242;
+    color: white;
 }
 
 /* Resources Section */
 .resources {
     text-align: center;
-    padding: 50px 20px;
-    background-color: #e9ecef;
+    padding: 25px 20px;
+    background-color: #500000;
+}
+.resources h1 {
+    color: white; 
+    font-size: 35px;
+
+}
+/* Wrapper to Center the Grid */
+.container-wrapper {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+/* Grid Container */
+.container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* Default: 3 columns */
+    grid-template-rows: repeat(2, auto);
+    gap: 30px;
+    max-width: 1200px; /* Prevents shifting */
+    width: 100%;
+    padding: 20px;
+    text-align: center;
+    align-items: center;
+}
+
+.container h2, 
+.container p {
+    color: white;
+}
+
+/* Responsive: Stack boxes vertically on small screens */
+@media (max-width: 768px) {
+    .container {
+        grid-template-columns: 1fr; /* One column */
+    }
 }
 
 /* Resource Boxes */
-.container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 20px;
-    padding: 20px;
-}
-
 .box {
-    width: 300px;
-    padding: 20px;
-    background-color: white;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: #d3d3d3;
+    padding: 25px;
+    border-radius: 15px;
     text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    min-height: 250px; /* Ensures equal height */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; 
+ /* Keeps text and button aligned */
 }
 
-.box button {
-    width: 100%;
+
+/* .box1 { background-color: #C56C5E; }  
+.box2 { background-color: #E3C6B0; }  
+.box3 { background-color: #C56C5E; }  
+.box4 { background-color: #E3C6B0; }  
+.box5 { background-color: #C56C5E; }  
+.box6 { background-color: #E3C6B0; } */
+
+.box1 { background-color: #0E3242; }  
+.box2 { background-color: #0E3242; }  
+.box3 { background-color: #0E3242; }  
+.box4 { background-color: #0E3242; }  
+.box5 { background-color: #0E3242; }  
+.box6 { background-color: #0E3242; } 
+
+
+/* Button Styling */
+button {
+    background: transparent;
+    border: 2px solid white;
+    color: white;
+    padding: 12px 25px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: auto; /* Pushes button to bottom */
+    border-radius: 5px;
+}
+
+button:hover {
+    background: white;
+    color: black;
 }
