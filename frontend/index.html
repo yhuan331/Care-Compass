@@ -1,19 +1,37 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Health Equity Resource Finder</title>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDNfgsYIx6vUKfs6-67XwPMhSe3x60NrQM
-    &callback=initMap" async defer></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Find Free/Low Cost Clinics Near Your Location</title>
 
-    <script src="script.js"></script>
+    <!-- Link to external script file FIRST -->
+    <script src="script.js" defer></script>
 
+    <!-- Add Google Maps API (Replace YOUR_API_KEY with your actual key) -->
+    <script
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDNfgsYIx6vUKfs6-67XwPMhSe3x60NrQM&callback=initMap&libraries=places"
+        async defer>
+    </script>
+
+    <style>
+        #map {
+            height: 500px;
+            width: 100%;
+        }
+        body {
+            font-family: Arial, sans-serif;
+        }
+    </style>
 </head>
-
 <body>
-    <h1>Find Free/Low-Cost Healthcare Clinics</h1>
-    <input type="text" id="search" placeholder="Search for a clinic..." onkeyup="filterClinics()">
+    <h1>Find Free/Low Cost Clinics Near Your Location</h1>
+    
+    <button onclick="searchClinics('free clinic')">Free Clinics Near Me</button>
+    <button onclick="searchClinics('low cost clinic')">Low Cost Clinics Near Me</button>
 
+    <div id="map"></div>
 
-    <div id="map" style="height: 500px; width: 100%;"></div>
+    
 </body>
 </html>

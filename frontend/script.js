@@ -1,71 +1,84 @@
-console.log("✅ script.js is loaded!"); // Confirm script is loaded
-
-let markers = []; // Store markers globally
+let map;
+let service;
+let userLocation = null;
 
 function initMap() {
-    console.log("✅ initMap() is running..."); // Confirm map is initializing
-
-    const map = new google.maps.Map(document.getElementById("map"), {
-        center: { lat: 37.7749, lng: -122.4194 },
-        zoom: 10
+    console.log("Initializing Map...");
+    
+    map = new google.maps.Map(document.getElementById("map"), {
+        center: { lat: 36.9741, lng: -122.0308 }, // Default: San Francisco
+        zoom: 12
     });
 
-    console.log("🔄 Fetching clinic data from API...");
+    service = new google.maps.places.PlacesService(map);
 
-    fetch("http://127.0.0.1:5000/clinics")
-        .then(response => {
-            console.log("✅ Fetch response received:", response);
-            return response.json();
-        })
-        .then(data => {
-            console.log("✅ Fetched Data:", data);
+    // Try to get the user's location
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(
+            position => {
+                userLocation = {
+                    lat: position.coords.latitude,
+                    lng: position.coords.longitude
+                };
+                map.setCenter(userLocation);
+                map.setZoom(14);
 
-            if (!Array.isArray(data) || data.length === 0) {
-                console.error("❌ Error: No data received!");
-                return;
-            }
-
-            data.forEach(clinic => {
-                console.log(`📍 Creating marker for ${clinic.name} at (${clinic.lat}, ${clinic.lng})`);
-
-                let marker = new google.maps.Marker({
-                    position: { lat: parseFloat(clinic.lat), lng: parseFloat(clinic.lng) },
+                new google.maps.Marker({
                     map,
-                    title: clinic.name
+                    position: userLocation,
+                    title: "You are here",
+                    icon: "http://maps.google.com/mapfiles/ms/icons/blue-dot.png"
+                });
+            },
+            () => {
+                console.warn("Geolocation failed.");
+            }
+        );
+    } else {
+        console.warn("Geolocation not supported.");
+    }
+}
+
+// Search for clinics using Google Places API
+function searchClinics(queryString) {
+    if (!service) {
+        alert("Google Places Service not ready.");
+        return;
+    }
+
+    const searchCenter = userLocation || { lat: 37.7749, lng: -122.4194 };
+    const request = {
+        query: queryString,
+        location: searchCenter,
+        radius: 15000
+    };
+
+    service.textSearch(request, (results, status) => {
+        if (status === google.maps.places.PlacesServiceStatus.OK) {
+            results.forEach(place => {
+                if (!place.geometry || !place.geometry.location) return;
+
+                const marker = new google.maps.Marker({
+                    map,
+                    position: place.geometry.location,
+                    title: place.name
                 });
 
-                let infoWindow = new google.maps.InfoWindow({
-                    content: `<h3>${clinic.name}</h3>
-                              <p>${clinic.address}</p>
-                              <p><b>Services:</b> ${clinic.services}</p>`
+                const infoWindow = new google.maps.InfoWindow({
+                    content: `<h3>${place.name}</h3><p>${place.formatted_address}</p>`
                 });
 
                 marker.addListener("click", () => {
                     infoWindow.open(map, marker);
                 });
-
-                markers.push(marker); // Store marker
             });
 
-            console.log("✅ Markers Created:", markers);
-        })
-        .catch(error => console.error("❌ Error fetching clinic data:", error));
-}
-
-// ✅ Search function to filter clinics
-function filterClinics() {
-    let searchText = document.getElementById("search").value.toLowerCase();
-    console.log("🔎 Search text:", searchText);
-
-    if (markers.length === 0) {
-        console.error("❌ No markers found!");
-        return;
-    }
-
-    markers.forEach(marker => {
-        let isMatch = marker.title.toLowerCase().includes(searchText);
-        console.log(`🔄 Checking ${marker.title} → Match: ${isMatch}`);
-
-        marker.setVisible(isMatch);
+            if (results[0] && results[0].geometry) {
+                map.setCenter(results[0].geometry.location);
+                map.setZoom(12);
+            }
+        } else {
+            alert("No results found.");
+        }
     });
 }
