@@ -18,7 +18,7 @@ This platform utilizes **Google Maps API** and **Google Places API** to provide 
 ## 🚀 Technologies Used  
 - **Frontend:** HTML, CSS, JavaScript  
 - **Backend:** Python (Flask)  
-- **APIs:** Google Maps API, Google Places API  
+- **APIs:** Google Maps API, Google Places API (Note: Please use your own API key, as our current one is no longer functional.)
 - **Database:** SQLite (Optional for future development)  
 - **Version Control:** Git & GitHub  
 
